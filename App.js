@@ -1,24 +1,19 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
-import { useFonts } from 'expo-font'; 
-import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins'; 
-import appStyles from './src/styles/AppStyles'; 
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
-export default function App() {
-  const [fontsLoaded] = useFonts({
-    Poppins_400Regular,
-    Poppins_600SemiBold, 
-  });
+const Stack = createNativeStackNavigator();
 
-  if (!fontsLoaded) {
-    return <ActivityIndicator size="large" color="#0000ff" />; 
-  }
-
+export default function App(){
   return (
-    <View style={appStyles.container}>
-      <Text style={appStyles.Text}>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator WelcomeRouteName="Welcome">
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }

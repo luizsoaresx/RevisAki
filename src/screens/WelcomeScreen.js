@@ -1,12 +1,15 @@
 import React from "react";
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import { useFonts } from "expo-font";
+import {Poppins_600SemiBold, Poppins_400Regular} from '@expo-google-fonts/poppins';
+import { styles } from "../styles/WelcomeScreenStyle";
 
 export default function WelcomeScreen({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Image 
-                    source={require('')}
+                    source={require('../assets/images/logo-revisaki.png')}
                     style={styles.logo}
                     resizeMode="contain"
                 />
@@ -31,5 +34,5 @@ export default function WelcomeScreen({navigation}) {
                 </TouchableOpacity>
             </View>
         </View>
-    )
+    );
 }
