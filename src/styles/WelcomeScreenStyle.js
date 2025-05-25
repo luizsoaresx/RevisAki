@@ -12,25 +12,25 @@ export const styles = StyleSheet.create({
 
     content: {
         position: 'absolute',
-        top: '20%',
+        top: '40%',
         alignItems: 'center',
     },
 
     logo: {
-        width: 200,
-        height: 60,
-        marginBottom: 10,
+        width: 400,
+        height: 150,
+        marginBottom: -32,
     },
 
     subtitle: {
-        color: colors.brancoComponents,
-        fontsize: 14,
-        textAlign: 'center', 
-        marginTop: 8,
+        color: 'rgba(244, 244, 244, 0.73)',
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 15,
+        textAlign: 'center',
     },
 
     buttonContainer: {
-        width: '80%',
+        width: '70%',
     },
 
     loginButton: {
@@ -43,12 +43,12 @@ export const styles = StyleSheet.create({
 
     loginText: {
         fontSize: 16,
-        fontWeight: 'Poppins_600SemiBold',
-        color: colors.azulEscuro
+        fontFamily: 'Poppins_700Bold',
+        color: colors.azulEscuro,
     },
 
     registerButton: {
-        backgroundColor: colors.brancoComponents,
+        backgroundColor: colors.azulEscuro,
         borderRadius: 10,
         paddingVertical: 14,
         alignItems: 'center',
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
 
     registerText: {
         fontSize: 16,
-        fontWeight: 'Poppins_600SemiBold', 
+        fontFamily: 'Poppins_700Bold',
         color: colors.brancoComponents
     },
 });

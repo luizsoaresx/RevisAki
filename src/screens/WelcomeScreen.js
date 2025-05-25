@@ -1,19 +1,29 @@
 import React from "react";
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useFonts } from "expo-font";
-import {Poppins_600SemiBold, Poppins_400Regular} from '@expo-google-fonts/poppins';
+import { Poppins_700Bold, Poppins_500Medium } from '@expo-google-fonts/poppins';
 import { styles } from "../styles/WelcomeScreenStyle";
 
-export default function WelcomeScreen({navigation}) {
+export default function WelcomeScreen({ navigation }) {
+
+    const [fontsLoaded] = useFonts({
+        Poppins_500Medium,
+        Poppins_700Bold,
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <Image 
+                <Image
                     source={require('../assets/images/logo-revisaki.png')}
                     style={styles.logo}
                     resizeMode="contain"
                 />
-                <Text>
+                <Text style={styles.subtitle}>
                     Você está a um flashcard do seu{'\n'}próximo avanço.
                 </Text>
             </View>
@@ -30,7 +40,7 @@ export default function WelcomeScreen({navigation}) {
                     style={styles.registerButton}
                     onPress={() => navigation.navigate('Register')}
                 >
-                    <Text styles={styles.registerText}>Cadastre-se</Text>
+                    <Text style={styles.registerText}>Cadastre-se</Text>
                 </TouchableOpacity>
             </View>
         </View>
