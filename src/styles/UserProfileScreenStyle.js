@@ -4,19 +4,17 @@ import { colors } from "./GlobalStyle";
 export const styles = StyleSheet.create({
 
     header: {
-        height: 170,
+        height: 120,
         backgroundColor: colors.azulEscuro,
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
         paddingTop: 20
     },
 
     logo: {
-        width: 250,
-        height: 60,
-        marginBottom: -12,
+        width: 120,
+        height: 40,
+        marginBottom: 40,
     },
 
     container: {
