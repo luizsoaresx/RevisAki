@@ -10,8 +10,8 @@ export const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: colors.azul, 
-    paddingTop: 50, 
-    paddingBottom: 10,
+    paddingTop: 25, 
+    paddingBottom: 15,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
