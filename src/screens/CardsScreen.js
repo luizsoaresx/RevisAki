@@ -5,29 +5,29 @@ import { Poppins_600SemiBold, Poppins_500Medium, Poppins_400Regular, Poppins_700
 import { Ionicons } from "@expo/vector-icons";
 
 const mockCards = [
-  { id: '1', titulo: 'Cartão 1' },
-  { id: '2', titulo: 'Cartão 2' },
-  { id: '3', titulo: 'Cartão 3' },
-  { id: '4', titulo: 'Cartão 4' },
-  { id: '5', titulo: 'Cartão 5' },
-  { id: '6', titulo: 'Cartão 6' },
-  { id: '7', titulo: 'Cartão 7' },
-  { id: '8', titulo: 'Cartão 8' },
-  { id: '9', titulo: 'Cartão 9' },
-  { id: '10', titulo: 'Cartão 10' },
-  { id: '11', titulo: 'Cartão 11' },
-  { id: '12', titulo: 'Cartão 12' },
+    { id: '1', titulo: 'Cartão 1' },
+    { id: '2', titulo: 'Cartão 2' },
+    { id: '3', titulo: 'Cartão 3' },
+    { id: '4', titulo: 'Cartão 4' },
+    { id: '5', titulo: 'Cartão 5' },
+    { id: '6', titulo: 'Cartão 6' },
+    { id: '7', titulo: 'Cartão 7' },
+    { id: '8', titulo: 'Cartão 8' },
+    { id: '9', titulo: 'Cartão 9' },
+    { id: '10', titulo: 'Cartão 10' },
+    { id: '11', titulo: 'Cartão 11' },
+    { id: '12', titulo: 'Cartão 12' },
 ];
 
 const CardItem = ({ titulo }) => (
-  <View style={styles.card}>
-    <View style={styles.cardTop}>
-      <Ionicons name="ellipsis-horizontal" size={18} color="#fff" />
+    <View style={styles.card}>
+        <View style={styles.cardTop}>
+            <Ionicons name="ellipsis-horizontal" size={18} color="#fff" />
+        </View>
+        <View style={styles.cardContent}>
+            <Text>{titulo}</Text>
+        </View>
     </View>
-    <View style={styles.cardContent}>
-      <Text>{titulo}</Text>
-    </View>
-  </View>
 );
 
 
@@ -45,7 +45,7 @@ export default function CardsScreen({ navigation }) {
     }
 
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <View style={styles.header}>
                 <Image
                     source={require('../assets/images/logo-revisaki.png')}
@@ -55,13 +55,18 @@ export default function CardsScreen({ navigation }) {
             </View>
 
             <View style={styles.container}>
-                <View>
-                    <Text style={[styles.title, {marginTop: 30}]}>Meus Cartões</Text>
+
+                <View style={styles.titleContainer}>
+                    <TouchableOpacity onPress={() => navigation.goBack('Welcome')} style={styles.backButton}>
+                        <Ionicons name="arrow-back" size={28} style={styles.backButtonIcon} />
+                    </TouchableOpacity>
+
+                    <Text style={styles.title}>Meus Cartões</Text>
                 </View>
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={styles.startReviewButton}
-                    >
+                >
                     <Text style={styles.startReviewText}>Começar revisão</Text>
                 </TouchableOpacity>
 
@@ -76,7 +81,7 @@ export default function CardsScreen({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.addButton}
-                    >
+                >
                     <Ionicons name="add" size={32} color="#fff" />
                 </TouchableOpacity>
 
