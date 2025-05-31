@@ -6,6 +6,7 @@ import RegisterScreen from "./src/screens/RegisterScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import DecksScreen from "./src/screens/DecksScreen";
 import UserProfile from "./src/screens/UserProfileScreen";
+import ProfileUpdate from "./src/screens/ProfileUpdateScreen";
 import { SafeAreaView } from 'react-native';
 import React from 'react';
 
@@ -25,6 +26,7 @@ export default function App(){
         <Stack.Screen name="UserProfile" component={UserProfile} options={{headerShown: false}}/>
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="Decks" component={DecksScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
