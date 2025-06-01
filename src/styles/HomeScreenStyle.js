@@ -26,9 +26,10 @@ export const styles = StyleSheet.create({
         padding: 20,
     },
     sectionTitle: {
-        fontSize: 16,
+        fontSize: 20,
         fontFamily: "Poppins_700Bold",
         marginBottom: 10,
+        marginTop: 20,
     },
     card: {
         width: 150,
