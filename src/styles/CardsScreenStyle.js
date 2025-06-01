@@ -4,19 +4,19 @@ import { colors } from "./GlobalStyle";
 export const styles = StyleSheet.create({
 
     header: {
-    backgroundColor: colors.azul, 
-    paddingTop: 25, 
-    paddingBottom: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    flexDirection: 'row',
+        backgroundColor: colors.azul,
+        paddingTop: 25,
+        paddingBottom: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        flexDirection: 'row',
     },
 
     logo: {
         width: 120,
         height: 40,
-        resizeMode:'contain',
+        resizeMode: 'contain',
     },
 
     container: {
@@ -26,10 +26,27 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
     },
 
+    titleContainer:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 30,
+        marginLeft: -12,
+    },
+
     title: {
+        marginTop: 5,
         fontSize: 22,
         fontFamily: 'Poppins_700Bold',
         color: colors.preto,
+    },
+
+    backButton: {
+        marginRight: 10,
+    },
+
+    backButtonIcon: {
+        color: colors.azulEscuro
+
     },
 
     startReviewButton: {
