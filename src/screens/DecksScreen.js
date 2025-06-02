@@ -38,7 +38,7 @@ export default function DecksScreen({ navigation }) {
     <TouchableOpacity
       style={styles.deckItem}
       onPress={() =>
-        navigation.navigate("FlashCards", { deck: item })
+        navigation.navigate("CardsScreen", { deck: item })
       }
     >
       <MaterialIcons name="folder" size={44} color={colors.brancoComponents} />
