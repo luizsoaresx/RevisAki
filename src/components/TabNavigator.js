@@ -7,6 +7,7 @@ import UserProfileScreen from '../screens/UserProfileScreen';
 import CardsScreen from '../screens/CardsScreen';
 import NewCardScreen from '../screens/NewCardScreen';
 import ProfileUpdateScreen from '../screens/ProfileUpdateScreen';
+
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
