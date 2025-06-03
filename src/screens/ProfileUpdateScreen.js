@@ -26,7 +26,7 @@ export default function ProfileUpdate({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <TouchableOpacity onPress={() => navigation.goBack('Welcome')} style={styles.backButton}>
+            <TouchableOpacity onPress={() => navigation.navigate('Perfil')} style={styles.backButton}>
                 <Ionicons name="arrow-back" size={24} style={styles.backButtonIcon} />
             </TouchableOpacity>
 
@@ -75,7 +75,7 @@ export default function ProfileUpdate({ navigation }) {
 
             <TouchableOpacity 
                 style={styles.UpdateButton}
-                onPress={() => navigation.navigate('UserProfile')}
+                onPress={() => navigation.navigate('Perfil')}
             
             >
                 <Text style={styles.UpdateText}>Salvar Alterações</Text>

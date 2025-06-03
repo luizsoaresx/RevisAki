@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
 import { Poppins_700Bold, Poppins_500Medium } from '@expo-google-fonts/poppins';
 import { styles } from "../styles/HomeScreenStyle";
 import { FontAwesome } from "@expo/vector-icons";
-import DeckFolder from "../components/DeckFolder";
+import CardCarousel from "../components/CardCarousel";
 
 export default function HomeScreen({ navigation }) {
     const [fontsLoaded] = useFonts({
@@ -28,10 +28,7 @@ export default function HomeScreen({ navigation }) {
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <Text style={styles.sectionTitle}>Cards Recentes</Text>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                    <View style={styles.card} />
-                    <View style={styles.card} />
-                </ScrollView>
+                <CardCarousel navigation={navigation} style={styles.card}/>
 
                 <Text style={styles.sectionTitle}>Pastas</Text>
                 {folders.map((folder) => (
