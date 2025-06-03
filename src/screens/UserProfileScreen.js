@@ -54,7 +54,7 @@ export default function UserProfile({ navigation }) {
                 </View>
 
                 <View>
-                    <TouchableOpacity style={styles.optionRow}>
+                    <TouchableOpacity onPress={() => navigation.navigate("ProfileUpdate")} style={styles.optionRow}>
                         <Ionicons name="pencil" size={24} style={styles.optionIcon} />
                         <Text style={styles.optionText}>Alterar Informações de Cadastro</Text>
                     </TouchableOpacity>

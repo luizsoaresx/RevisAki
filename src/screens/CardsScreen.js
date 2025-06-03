@@ -80,7 +80,7 @@ export default function CardsScreen({ navigation }) {
                 />
 
                 <TouchableOpacity
-                    style={styles.addButton}
+                    onPress={() => navigation.navigate("NewCard")} style={styles.addButton}
                 >
                     <Ionicons name="add" size={32} color="#fff" />
                 </TouchableOpacity>
