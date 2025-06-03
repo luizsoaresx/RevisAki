@@ -4,7 +4,6 @@ import { useFonts } from "expo-font";
 import { Poppins_700Bold, Poppins_500Medium } from '@expo-google-fonts/poppins';
 import { styles } from "../styles/HomeScreenStyle";
 import { FontAwesome } from "@expo/vector-icons";
-import DeckFolder from "../components/DeckFolder";
 import CardCarousel from "../components/CardCarousel";
 
 export default function HomeScreen({ navigation }) {
