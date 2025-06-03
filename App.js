@@ -22,8 +22,8 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Home" component={TabNavigator} />
-        <Stack.Screen name="UserProfile" component={UserProfile} />
         <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
+        <Stack.Screen name="UserProfile" component={UserProfile} />
         <Stack.Screen name="NewCard" component={NewCard} />
         <Stack.Screen name="Decks" component={DecksScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
