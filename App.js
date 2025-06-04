@@ -8,11 +8,14 @@ import ProfileUpdate from "./src/screens/ProfileUpdateScreen";
 import TabNavigator from "./src/components/TabNavigator";
 import CardsScreen from "./src/screens/CardsScreen"; 
 import NewCardScreen from "./src/screens/NewCardScreen"; 
+import DecksScreen from "./src/screens/DecksScreen";
+import { MenuProvider } from "react-native-popup-menu";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <MenuProvider>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Welcome">
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -20,9 +23,11 @@ export default function App() {
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
         <Stack.Screen name="Home" component={TabNavigator} />
+        <Stack.Screen name="Decks" component={DecksScreen} />
         <Stack.Screen name="CardsScreen" component={CardsScreen} />
         <Stack.Screen name="NewCard" component={NewCardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+  </MenuProvider>
   );
 }
