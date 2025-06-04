@@ -3,6 +3,8 @@ import { styles } from "../styles/CardsScreenStyle";
 import { useFonts } from "expo-font";
 import { Poppins_600SemiBold, Poppins_500Medium, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import { Ionicons } from "@expo/vector-icons";
+import { menuPopupStyles } from "../styles/SubMenuStyle";
+import { Menu, MenuOptions, MenuOption, MenuTrigger } from 'react-native-popup-menu';
 
 const mockCards = [
     { id: '1', titulo: 'Cartão 1' },
@@ -22,7 +24,30 @@ const mockCards = [
 const CardItem = ({ titulo }) => (
     <View style={styles.card}>
         <View style={styles.cardTop}>
+            <Menu>
+                <MenuTrigger>
             <Ionicons name="ellipsis-horizontal" size={18} color="#fff" />
+                </MenuTrigger>
+                <MenuOptions customStyles={{
+                    optionsContainer: menuPopupStyles.optionsContainer,
+                    optionWrapper: menuPopupStyles.optionWrapper,
+                  }}>
+                    <MenuOption
+                          onSelect={() => {
+                            
+                          }}
+                        >
+                          <Text style={menuPopupStyles.optionText}>Editar Card</Text>
+                        </MenuOption>
+                    
+                        <MenuOption
+                          onSelect={() => {
+                          }}
+                        >
+                          <Text style={menuPopupStyles.optionDeleteText}>Excluir</Text>
+                        </MenuOption>   
+                </MenuOptions>
+            </Menu>
         </View>
         <View style={styles.cardContent}>
             <Text>{titulo}</Text>
