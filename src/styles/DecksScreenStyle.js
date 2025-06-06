@@ -9,18 +9,25 @@ export const styles = StyleSheet.create({
     paddingTop: 0,
   },
   header: {
-    backgroundColor: colors.azul, 
-    paddingTop: 50, 
-    paddingBottom: 10,
+    backgroundColor: colors.azul,
+    paddingTop: 25,
+    paddingBottom: 15,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
     flexDirection: 'row',
   },
   logo: {
-        width: 120,
-        height: 40,
-        resizeMode:'contain',
+    width: 120,
+    height: 40,
+    resizeMode: 'contain',
+  },
+  screenTitle: {
+    color: colors.preto,
+    fontSize: 20,
+    fontFamily: 'Poppins_700Bold',
+    marginTop: 40,
+    marginBottom: 10,
   },
   deckItem: {
     flexDirection: 'row',
@@ -33,20 +40,9 @@ export const styles = StyleSheet.create({
   deckTitle: {
     color: colors.brancoComponents,
     fontSize: 18,
-    fontWeight: '600',
     marginLeft: 12,
     flex: 1,
     fontFamily: 'Poppins_700Bold',
-  },
-  screenTitle:{
-    color: colors.preto,
-    fontSize: 20,
-    fontFamily: 'Poppins_700Bold',
-    marginTop: 40,
-    marginBottom: 10,
-  },
-  menuIcon: {
-    marginLeft: 'auto',
   },
   newDeck: {
     position: 'absolute',
@@ -59,5 +55,59 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 6,
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  modalBox: {
+    width: '80%',
+    backgroundColor: colors.azul,
+    borderRadius: 12,
+    padding: 20,
+    alignItems: 'center',
+    position: 'relative',
+  },
+
+  closeIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    padding: 5,
+  },
+
+  modalTitle: {
+    fontSize: 18,
+    fontFamily: 'Poppins_700Bold',
+    color: colors.brancoComponents,
+    marginBottom: 20,
+  },
+
+  modalInput: {
+    width: '100%',
+    borderBottomWidth: 2,
+    borderBottomColor: colors.brancoComponents,
+    color: colors.brancoComponents,
+    fontSize: 16,
+    fontFamily: 'Poppins_500Medium',
+    marginBottom: 24,
+    paddingVertical: 6,
+  },
+
+  modalButton: {
+    backgroundColor: '#003366',
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    width: '100%',
+    alignItems: 'center',
+  },
+
+  modalButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontFamily: 'Poppins_700Bold',
   },
 });

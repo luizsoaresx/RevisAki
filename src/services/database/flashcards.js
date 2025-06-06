@@ -1,28 +1,52 @@
-import { getDbConnection } from './db';
+import { getDb } from './db'
 
-export async function createFlashcard(userId, directoryId, tema, subtema, dataPostagem, pergunta, resposta) {
-  const db = await getDbConnection();
-  return await db.runAsync(
-    `INSERT INTO flashcards (user_id, directory_id, tema, subtema, data_postagem, pergunta, resposta)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    userId, directoryId, tema, subtema, dataPostagem, pergunta, resposta
-  );
-}
+export const createFlashcard = async (deckId, question, answer) => {
+    const db = getDb();
 
-export async function getFlashcardsByDirectory(directoryId) {
-  const db = await getDbConnection();
-  return await db.getAllAsync('SELECT * FROM flashcards WHERE directory_id = ?', directoryId);
-}
+    const result = await db.runAsync(
+        'INSERT INTO flashcards (deckId, question, answer) VALUES (?, ?, ?)',
+        [deckId, question, answer]
+    );
 
-export async function updateFlashcard(id, tema, subtema, pergunta, resposta) {
-  const db = await getDbConnection();
-  return await db.runAsync(
-    `UPDATE flashcards SET tema = ?, subtema = ?, pergunta = ?, resposta = ? WHERE id = ?`,
-    tema, subtema, pergunta, resposta, id
-  );
-}
+    return result.lastInsertRowId;
+};
 
-export async function deleteFlashcard(id) {
-  const db = await getDbConnection();
-  return await db.runAsync('DELETE FROM flashcards WHERE id = ?', id);
-}
+export const getFlashcardsByDeckId = async (deckId) => {
+    const db = getDb();
+
+    const flashcards = await db.getAllAsync(
+        'SELECT * FROM flashcards WHERE deckId = ?',
+        [deckId]
+    );
+
+    return flashcards;
+};
+
+export const updateFlashcard = async (id, question, answer) => {
+    const db = getDb();
+
+    await db.runAsync(
+        'UPDATE flashcards SET question = ?, answer = ?  WHERE id = ?',
+        [question, answer, id]
+    );
+};
+
+export const deleteFlashcard = async (id) => {
+    const db = getDb();
+
+    await db.runAsync(
+        'DELETE FROM flashcards WHERE id = ?',
+        [id]
+    );
+};
+
+export const getFlashcardById = async (id) => {
+    const db = getDb();
+
+    const flashcard = await db.getFirstAsync(
+        'SELECT * FROM flashcards WHERE id = ?',
+        [id]
+    );
+
+    return flashcard;
+};

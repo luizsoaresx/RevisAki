@@ -1,21 +1,52 @@
-import { getDbConnection } from './db';
+import { getDb } from '../database/db';
 
-export async function createDeck(userId, name) {
-  const db = await getDbConnection();
-  return await db.runAsync('INSERT INTO decks (user_id, name) VALUES (?, ?)', userId, name);
-}
+export const createDeck = async (name, userId) => {
+    const db = getDb();
+    
+    const result = await db.runAsync(
+        'INSERT INTO decks (name, userId) VALUES (?, ?)',
+        [name, userId]
+    );
+    
+    return result.lastInsertRowId;
+};
 
-export async function getDecksByUser(userId) {
-  const db = await getDbConnection();
-  return await db.getAllAsync('SELECT * FROM decks WHERE user_id = ?', userId);
-}
+export const getDecksByUserId = async (userId) => {
+    const db = getDb();
 
-export async function updateDeck(id, name) {
-  const db = await getDbConnection();
-  return await db.runAsync('UPDATE decks SET name = ? WHERE id = ?', name, id);
-}
+    const decks = await db.getAllAsync(
+        'SELECT * FROM decks WHERE userId = ?',
+        [userId]
+    );
 
-export async function deleteDeck(id) {
-  const db = await getDbConnection();
-  return await db.runAsync('DELETE FROM decks WHERE id = ?', id);
-}
+    return decks;
+};
+
+export const updateDeck = async (id, name) => {
+    const db = getDb();
+
+    await db.runAsync(
+        'UPDATE decks SET name = ? WHERE id = ?',
+        [name, id]
+    );
+};
+
+export const deleteDeck = async (id) => {
+    const db = getDb()
+
+    await db.runAsync(
+        'DELETE FROM decks WHERE id = ?',
+        [id]
+    );
+};
+
+export const getDecById = async (id) => {
+    const db = getDb();
+
+    const deck = await db.getFirstAsync(
+        'SELECT * FROM decks WHERE id = ?',
+        [id]
+    );
+    
+    return deck;
+};
