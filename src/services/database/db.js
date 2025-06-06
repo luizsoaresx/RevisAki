@@ -6,7 +6,7 @@ let isInitialized = false;
 export async function initDB(){
   if (!isInitialized){
     console.log('Iniciando o banco de dados');
-    db = await SQLite.openDatabaseAsync('flashcards.db');
+    db = await SQLite.openDatabaseAsync('revisaki.db');
 
     await db.execAsync(
       `CREATE TABLE IF NOT EXISTS users (
