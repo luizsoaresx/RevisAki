@@ -66,6 +66,7 @@ export default function CardsScreen({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.startReviewButton}
+                    onPress={() => navigation.navigate("RevisionScreen")} // Added navigation
                 >
                     <Text style={styles.startReviewText}>Começar revisão</Text>
                 </TouchableOpacity>
