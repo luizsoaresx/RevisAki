@@ -3,9 +3,12 @@
     "name": "revisaki",
     "slug": "revisaki",
     "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "jsEngine": "jsc",
+    "scheme": "revisaki",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -13,21 +16,56 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.revisaki",
+      "usesIcloudStorage": true, 
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "package": "com.revisaki",
+      "versionCode": 1,
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "softwareKeyboardLayoutMode": "pan", 
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "build": {
+        "babel": {
+          "include": ["expo-sqlite"]
+        }
+      }
     },
     "plugins": [
-      "expo-sqlite",
-      "expo-font"
-    ]
+      [
+        "expo-sqlite",
+        {
+          "iosDatabaseLocation": "Library/SQLiteDatabase",
+          "androidDatabaseImplementation": 2 
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": "./assets/fonts" 
+        }
+      ]
+    ],
+    "extra": {
+      "databaseName": "flashcards.db",
+      "databaseVersion": "1.0"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }

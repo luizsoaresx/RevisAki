@@ -101,8 +101,29 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 3.84,
-        elevation: 5, // para Android
+        elevation: 5,
+
+    },
+        noCardsContainer: {
+        flex: 1, 
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
     },
 
+    noCardsText: {
+        fontFamily: 'Poppins_600SemiBold', 
+        fontSize: 18,
+        color: '#555',
+        textAlign: 'center',
+        marginBottom: 10,
+    },
+
+    noCardsSubText: {
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 14,
+        color: '#777',
+        textAlign: 'center',
+    },
 
 });
