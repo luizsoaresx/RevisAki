@@ -1,22 +1,10 @@
 import React, { useState, useContext } from "react";
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  ActivityIndicator,
-  Alert 
-} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { styles } from "../styles/RegisterScreenStyle";
 import { useFonts } from "expo-font";
-import { 
-  Poppins_600SemiBold, 
-  Poppins_500Medium, 
-  Poppins_400Regular, 
-  Poppins_700Bold 
-} from '@expo-google-fonts/poppins';
+import { Poppins_600SemiBold, Poppins_500Medium, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import { Ionicons } from "@expo/vector-icons";
-import { AuthContext } from '../services/auth/AuthContext';
+import { createUser, getUserByEmail} from '../services/database/user';
 
 export default function RegisterScreen({ navigation }) {
     const [name, setName] = useState('');
@@ -24,9 +12,7 @@ export default function RegisterScreen({ navigation }) {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    
-    const { register } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const [fontsLoaded] = useFonts({
         Poppins_500Medium,
@@ -35,45 +21,60 @@ export default function RegisterScreen({ navigation }) {
         Poppins_700Bold,
     });
 
+    if (!fontsLoaded){
+        return null;
+    }
+
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     const handleRegister = async () => {
-        if (!name || !email || !password || !confirmPassword) {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos');
+        setError('');
+
+        if (!name || !email || ! password || !confirmPassword){
+            setError('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        if (!isValidEmail(email)){
+            setError('Por favor, insira um e-mail válido.');
             return;
         }
 
         if (password !== confirmPassword) {
-            Alert.alert('Erro', 'As senhas não coincidem');
+            setError('As senhas não coincidem.');
             return;
         }
 
-        if (password.length < 6) {
-            Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres');
+        if (password.length < 6){
+            setError('A senha deve ter pelo menos 6 caracteres.');
             return;
         }
 
-        setIsLoading(true);
-        
         try {
-            const result = await register(email, password);
-            
-            if (result.success) {
-                Alert.alert('Sucesso', 'Cadastro realizado com sucesso!', [
-                    { text: 'OK', onPress: () => navigation.navigate('Login') }
-                ]);
-            } else {
-                Alert.alert('Erro no cadastro', result.error || 'Não foi possível completar o cadastro');
+            const existingUser = await getUserByEmail(email);
+            if (existingUser){
+                setError('Este e-mail já está cadastrado.');
+                return;
             }
-        } catch (error) {
-            Alert.alert('Erro', 'Ocorreu um erro durante o cadastro');
-            console.error('Registration error:', error);
-        } finally {
-            setIsLoading(false);
+
+            await createUser(name, email, password);
+
+            navigation.navigate('Login');
+
+        } catch (dbError) {
+            console.error('Erro ao cadastrar usuário no banco de dados:', dbError);
+
+            if (dbError.message = 'E-mail já está cadastrado.') {
+                setError('Este e-mail já está cadastrado.');
+            }
+            else{
+                setError('Ocorreu um erro ao tentar cadastrar. Tente novamente');
+            }
         }
     };
-
-    if (!fontsLoaded) {
-        return null;
-    }
 
     return (
         <View style={styles.container}>
@@ -92,7 +93,6 @@ export default function RegisterScreen({ navigation }) {
                 value={name}
                 onChangeText={setName}
                 placeholder="Digite seu nome completo"
-                placeholderTextColor="#999"
             />
 
             <Text style={styles.label}>E-mail</Text>
@@ -103,7 +103,6 @@ export default function RegisterScreen({ navigation }) {
                 keyboardType="email-address"
                 autoCapitalize="none"
                 placeholder="Digite seu e-mail"
-                placeholderTextColor="#999"
             />
 
             <Text style={styles.label}>Senha</Text>
@@ -114,7 +113,6 @@ export default function RegisterScreen({ navigation }) {
                     onChangeText={setPassword}
                     secureTextEntry={!showPassword}
                     placeholder="Digite sua senha (mínimo 6 caracteres)"
-                    placeholderTextColor="#999"
                 />
                 <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                     <Ionicons
@@ -132,19 +130,13 @@ export default function RegisterScreen({ navigation }) {
                 onChangeText={setConfirmPassword}
                 secureTextEntry
                 placeholder="Confirme sua senha"
-                placeholderTextColor="#999"
             />
 
             <TouchableOpacity 
                 style={styles.loginButton}
                 onPress={handleRegister}
-                disabled={isLoading}
             >
-                {isLoading ? (
-                    <ActivityIndicator color="#FFF" />
-                ) : (
                     <Text style={styles.loginText}>Cadastrar</Text>
-                )}
             </TouchableOpacity>
 
             <Text style={styles.register}>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { initDB } from "./src/services/database/db";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import WelcomeScreen from "./src/screens/WelcomeScreen";
@@ -12,6 +13,9 @@ import NewCardScreen from "./src/screens/NewCardScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
+  useEffect(() => { initDB();}, []);
+  
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Welcome">

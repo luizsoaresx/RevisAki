@@ -41,6 +41,13 @@ export const styles = StyleSheet.create({
         color: colors.azulEscuro,
     },
 
+    deckTitleText: {
+        marginTop: 5,
+        fontSize: 22,
+        fontFamily: 'Poppins_600SemiBold',
+        color: colors.azulEscuro,
+    },
+
     backButton: {
         marginRight: 10,
     },
@@ -74,7 +81,7 @@ export const styles = StyleSheet.create({
         borderColor: colors.preto,
         borderRadius: 10,
         paddingHorizontal: 12,
-        textAlignVertical:"top",
+        textAlignVertical: "top",
         height: 100,
     },
 
@@ -90,6 +97,20 @@ export const styles = StyleSheet.create({
         color: colors.brancoComponents,
         fontSize: 15,
         fontFamily: 'Poppins_700Bold',
+    },
+
+    successMessage: {
+        color: '#0CAC4F',
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+
+    errorMessage: {
+        color: '#D40402',
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center',
     }
 
 })

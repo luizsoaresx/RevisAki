@@ -1,28 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { TouchableOpacity, Text } from 'react-native';
-
-
-export default function HomeScreen (){
-    <TouchableOpacity
-  onPress={() => {
-    const db = SQLite.openDatabase('revisaki.db');
-    db.transaction(tx => {
-      tx.executeSql(
-        'SELECT * FROM users;',
-        [],
-        (_, { rows }) => {
-          console.log('Usuários cadastrados:', rows._array);
-        }
-      );
-    });
-  }}
-  style={{ padding: 10, backgroundColor: 'blue', marginTop: 20 }}
->
-  <Text style={{ color: 'white' }}>Ver usuários no console</Text>
-</TouchableOpacity>
-}
-=======
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import { Poppins_700Bold, Poppins_500Medium } from '@expo-google-fonts/poppins';
@@ -69,4 +45,3 @@ export default function HomeScreen({ navigation }) {
         </View>
     );
 }
->>>>>>> 2f8359db5a4e3585d153549b8e3bc7d3d5b7b0e8
