@@ -59,6 +59,8 @@ export default function LoginScreen({ navigation }) {
 
             <Text style={styles.title}>Faça login na sua conta</Text>
 
+            {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
+
             <Text style={styles.label}>E-mail</Text>
             <TextInput
                 style={styles.input}

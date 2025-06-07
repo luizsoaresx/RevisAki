@@ -87,6 +87,8 @@ export default function RegisterScreen({ navigation }) {
 
             <Text style={styles.title}>Cadastre-se no RevisAki</Text>
 
+            {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
+
             <Text style={styles.label}>Nome</Text>
             <TextInput
                 style={styles.input}
