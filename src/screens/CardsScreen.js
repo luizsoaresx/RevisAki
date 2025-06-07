@@ -71,8 +71,7 @@ export default function CardsScreen({ route, navigation }) {
                     <>
                         <TouchableOpacity
                     style={styles.startReviewButton}
-                    onPress={() => navigation.navigate("RevisionScreen")} // Added navigation
-                >
+                    onPress={() => navigation.navigate("RevisionScreen", { deckId: deckId, deckName: deckName })}>
                     <Text style={styles.startReviewText}>Começar revisão</Text>
                 </TouchableOpacity>
 
