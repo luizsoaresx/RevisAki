@@ -1,23 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  Alert,
-  Modal,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image, Alert, Modal } from "react-native";
 import { styles } from "../styles/RevisionScreenStyle";
 import { useFonts } from "expo-font";
-import {
-  Poppins_600SemiBold,
-  Poppins_500Medium,
-  Poppins_400Regular,
-  Poppins_700Bold,
-} from "@expo-google-fonts/poppins";
-import { Ionicons} from "@expo/vector-icons";
+import {Poppins_600SemiBold, Poppins_500Medium, Poppins_400Regular, Poppins_700Bold,} from "@expo-google-fonts/poppins";
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { StyleSheet, Dimensions } from "react-native";
 import { getFlashcardsByDeckId } from "../services/database/flashcard";
 
 export default function RevisionScreen({ route, navigation }) {
@@ -38,6 +24,22 @@ export default function RevisionScreen({ route, navigation }) {
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [showEndReviewModal, setShowEndReviewModal] = useState(false);
 
+  const shuffleArray = (array) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+    return array;
+  };
+
   const fetchFlashcards = useCallback(async () => {
     if (!deckId) {
       console.warn(
@@ -51,11 +53,14 @@ export default function RevisionScreen({ route, navigation }) {
 
     try {
       const loadedFlashcards = await getFlashcardsByDeckId(deckId);
-      const formattedCards = loadedFlashcards.map((card) => ({
+      
+      let formattedCards = loadedFlashcards.map((card) => ({
         id: card.id.toString(),
         pergunta: card.question,
         resposta: card.answer,
       }));
+
+      formattedCards = shuffleArray(formattedCards);
 
       setFlashcards(formattedCards);
       if (formattedCards.length > 0) {
@@ -108,7 +113,7 @@ export default function RevisionScreen({ route, navigation }) {
     setShowEndReviewModal(false);
     navigation.goBack();
   };
-const handleExitReview = () => {
+  const handleExitReview = () => {
     Alert.alert(
       "Sair da Revisão",
       "Você tem certeza que deseja sair da revisão atual? Seu progresso não será salvo.",
@@ -119,8 +124,8 @@ const handleExitReview = () => {
         },
         {
           text: "Sair",
-          onPress: () => navigation.goBack(), 
-          style: "destructive", 
+          onPress: () => navigation.goBack(),
+          style: "destructive",
         },
       ]
     );
@@ -158,7 +163,7 @@ const handleExitReview = () => {
           style={styles.logo}
           resizeMode="contain"
         />
-        
+
       </View>
 
       <View style={styles.content}>
