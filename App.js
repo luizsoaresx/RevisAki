@@ -8,6 +8,7 @@ import RegisterScreen from "./src/screens/RegisterScreen";
 import ProfileUpdate from "./src/screens/ProfileUpdateScreen";
 import TabNavigator from "./src/components/TabNavigator";
 import CardsScreen from "./src/screens/CardsScreen"; 
+import RevisionScreen from "./src/screens/RevisionScreen"; 
 import NewCardScreen from "./src/screens/NewCardScreen"; 
 
 const Stack = createNativeStackNavigator();
@@ -26,6 +27,7 @@ export default function App() {
         <Stack.Screen name="Home" component={TabNavigator} />
         <Stack.Screen name="CardsScreen" component={CardsScreen} />
         <Stack.Screen name="NewCard" component={NewCardScreen} />
+        <Stack.Screen name="RevisionScreen" component={RevisionScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

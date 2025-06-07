@@ -69,9 +69,12 @@ export default function CardsScreen({ route, navigation }) {
 
                 {flashcards.length > 0 ? (
                     <>
-                        <TouchableOpacity style={styles.startReviewButton}>
-                            <Text style={styles.startReviewText}>Começar revisão</Text>
-                        </TouchableOpacity>
+                        <TouchableOpacity
+                    style={styles.startReviewButton}
+                    onPress={() => navigation.navigate("RevisionScreen")} // Added navigation
+                >
+                    <Text style={styles.startReviewText}>Começar revisão</Text>
+                </TouchableOpacity>
 
                         <FlatList
                             data={flashcards}
