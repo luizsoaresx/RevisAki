@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 14,
     marginBottom: 16,
+    position: 'relative',
   },
   deckTitle: {
     color: colors.brancoComponents,
@@ -43,6 +44,11 @@ export const styles = StyleSheet.create({
     marginLeft: 12,
     flex: 1,
     fontFamily: 'Poppins_700Bold',
+  },
+  ellipsisButton: {
+    paddingLeft: 10,
+    paddingVertical: 5,
+    paddingRight: 5,
   },
   newDeck: {
     position: 'absolute',
@@ -54,7 +60,6 @@ export const styles = StyleSheet.create({
     height: 56,
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 6,
   },
   modalOverlay: {
     flex: 1,
@@ -70,21 +75,18 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
   },
-
   closeIcon: {
     position: 'absolute',
     top: 10,
     right: 10,
     padding: 5,
   },
-
   modalTitle: {
     fontSize: 18,
     fontFamily: 'Poppins_700Bold',
     color: colors.brancoComponents,
     marginBottom: 20,
   },
-
   modalInput: {
     width: '100%',
     borderBottomWidth: 2,
@@ -95,7 +97,6 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
     paddingVertical: 6,
   },
-
   modalButton: {
     backgroundColor: '#003366',
     paddingVertical: 10,
@@ -104,10 +105,63 @@ export const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
-
   modalButtonText: {
     color: 'white',
     fontSize: 16,
     fontFamily: 'Poppins_700Bold',
+  },
+  modalErrorMessage: {
+    color: '#FFD700',
+    fontSize: 14,
+    marginBottom: 10,
+    fontFamily: 'Poppins_500Medium',
+    textAlign: 'center',
+  },
+  transparentOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'transparent',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+  },
+  actionMenuBox: {
+    position: 'absolute',
+    zIndex: 10,
+    flexDirection: 'column',
+  },
+  actionButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 6,
+    width: 120,
+    marginBottom: 6,
+  },
+  deleteButton: {
+    backgroundColor: '#E53935',
+    borderRadius: 6,
+    width: 120,
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  editButton: {
+    backgroundColor: '#ADD8E6',
+    borderRadius: 6,
+    width: 120,
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  actionButtonTextDelete: {
+    fontFamily: 'Poppins_700Bold',
+    fontSize: 12,
+    color: 'white',
+  },
+  actionButtonTextEdit: {
+    fontFamily: 'Poppins_700Bold',
+    fontSize: 12,
+    color: 'black',
   },
 });
