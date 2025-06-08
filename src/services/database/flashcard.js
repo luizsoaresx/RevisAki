@@ -50,3 +50,21 @@ export const getFlashcardById = async (id) => {
 
     return flashcard;
 };
+
+export const countFlashcardsByUserId = async (userId) => {
+    const db = getDb();
+    try {
+        const result = await db.getFirstAsync(
+            `SELECT COUNT(f.id) as count
+             FROM flashcards f
+             JOIN decks d ON f.deckId = d.id
+             WHERE d.userId = ?`,
+            [userId]
+        );
+        return result ? result.count : 0;
+        
+    } catch (error) {
+        console.error('Erro ao contar flashcards por usuário:', error);
+        throw error;
+    }
+};
