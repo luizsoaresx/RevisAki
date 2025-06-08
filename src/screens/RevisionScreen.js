@@ -185,8 +185,8 @@ export default function RevisionScreen({ route, navigation }) {
         {showAnswer && (
           <View style={styles.classificationContainer}>
             <Text style={styles.classificationText}>
-              Como classifica a sua resposta em relação à pergunta feita
-              anteriormente?
+              Como classifica a sua resposta em relação à pergunta
+              anterior?
             </Text>
             <View style={styles.scoreButtonsContainer}>
               <TouchableOpacity
@@ -234,7 +234,7 @@ export default function RevisionScreen({ route, navigation }) {
               Percentual de acertos: {percentageCorrect}%
             </Text>
             <TouchableOpacity
-              style={[styles.button, styles.buttonClose]}
+              style={styles.buttonClose}
               onPress={closeEndReviewModal}
             >
               <Text style={styles.textStyle}>Ok</Text>

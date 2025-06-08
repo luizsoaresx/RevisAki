@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { colors } from "./GlobalStyle"; 
+import { colors } from "./GlobalStyle";
 
 
 const { width } = Dimensions.get('window');
@@ -21,11 +21,13 @@ export const styles = StyleSheet.create({
         color: '#333',
     },
     header: {
-        backgroundColor: '#21314d',
-        paddingVertical: 15,
+        backgroundColor: colors.azul,
+        paddingTop: 25,
+        paddingBottom: 15,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 40, 
+        width: '100%',
+        flexDirection: 'row',
     },
     logo: {
         width: 120,
@@ -34,9 +36,9 @@ export const styles = StyleSheet.create({
 
     exitButton: {
         position: 'absolute',
-        right: 15, 
-        top: 25, 
-        padding: 5, 
+        right: 15,
+        top: 25,
+        padding: 5,
     },
     exitButtonText: {
         color: '#fff',
@@ -51,8 +53,8 @@ export const styles = StyleSheet.create({
         padding: 20,
     },
     card: {
-        width: width * 0.85, 
-        aspectRatio: 16 / 9, 
+        width: width * 0.85,
+        aspectRatio: 16 / 9,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -65,57 +67,40 @@ export const styles = StyleSheet.create({
         marginBottom: 30,
     },
     cardQuestion: {
-        backgroundColor: '#ffffff',
+        backgroundColor: colors.brancoComponents,
     },
     cardAnswer: {
-        backgroundColor: '#528BCA', 
+        backgroundColor: colors.azulClaro,
     },
     cardText: {
         fontSize: 24,
         textAlign: 'center',
         fontFamily: 'Poppins_600SemiBold',
-        color: '#333',
+        color: '#1F1F1F',
     },
     actionButton: {
         backgroundColor: '#21314d',
         paddingVertical: 15,
         paddingHorizontal: 30,
         borderRadius: 8,
-        display: 'none', 
+        display: 'none',
     },
     buttonText: {
         color: '#fff',
         fontSize: 18,
         fontFamily: 'Poppins_500Medium',
     },
-    footer: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        paddingVertical: 15,
-        borderTopWidth: 1,
-        borderTopColor: '#e0e0e0',
-        position: 'absolute', 
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 120, 
-    },
-    footerIcon: {
-        padding: 10,
-    },
 
-    actionButtonFooter: { 
-         backgroundColor: '#4285F4',
+    actionButtonFooter: {
+        backgroundColor: colors.azulEscuro,
         paddingVertical: 12,
         paddingHorizontal: 20,
         borderRadius: 25,
-        alignSelf: 'center', 
+        alignSelf: 'center',
         width: width * 0.7,
         alignItems: 'center',
-        position: 'absolute', 
-        bottom: 90, 
+        position: 'absolute',
+        bottom: 90,
     },
     classificationContainer: {
         marginTop: 20,
@@ -143,10 +128,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     wrongButton: {
-        backgroundColor: '#E02A2A', 
+        backgroundColor: '#E02A2A',
     },
     correctButton: {
-        backgroundColor: '#28A745', 
+        backgroundColor: '#28A745',
     },
     scoreButtonText: {
         color: '#fff',
@@ -161,13 +146,18 @@ export const styles = StyleSheet.create({
     },
 
     centeredView: {
-        flex: 1,
+        position: 'absolute',
+        top: 32,
+        bottom: 0,
+        left: 0,
+        right: 0,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: 'rgba(0,0,0,0.5)', 
+        backgroundColor: 'rgba(0,0,0,0.5)',
     },
     modalView: {
         margin: 20,
+        marginBottom: 80,
         backgroundColor: "white",
         borderRadius: 20,
         padding: 35,
@@ -195,14 +185,13 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         color: '#555',
     },
-    button: {
+    buttonClose: {
         borderRadius: 20,
+        width: 100,
         padding: 10,
         elevation: 2,
         marginTop: 15,
-    },
-    buttonClose: {
-        backgroundColor: "#4285F4", 
+        backgroundColor: colors.azulClaro,
     },
     textStyle: {
         color: "white",
