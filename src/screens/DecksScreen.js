@@ -81,7 +81,8 @@ export default function DecksScreen({ navigation }) {
       await loadDecks();
       setNewDeckName("");
       setModalVisible(false);
-      navigation.navigate("CardsScreen", { deckId: newDeckId, deckName: newDeckName });
+
+      navigation.navigate("CardsScreen", { deckId: newDeckId, deckName: newDeckName, key: `cards-screen-${newDeckId}-${Date.now()}` });
     } catch (error) {
       console.error('Erro ao criar deck no banco de dados:', error);
       setInputError('Não foi possível criar o deck. Tente novamente.');
