@@ -138,7 +138,7 @@ export default function UserProfile({ navigation }) {
                     </View>
                     <View style={styles.statColumn}>
                         <Text style={styles.number}>{cardCount}</Text>
-                        <Text style={styles.label}>Cartões</Text>
+                        <Text style={styles.label}>Flashcards</Text>
                     </View>
                 </View>
 

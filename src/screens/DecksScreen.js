@@ -181,7 +181,7 @@ export default function DecksScreen({ navigation }) {
       </View>
 
       <View style={styles.container}>
-        <Text style={styles.screenTitle}>Minhas Pastas</Text>
+        <Text style={styles.screenTitle}>Meus Decks</Text>
 
         <FlatList
           data={decks}
