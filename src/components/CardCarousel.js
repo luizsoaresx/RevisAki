@@ -1,75 +1,75 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../styles/GlobalStyle";
 import { useNavigation } from '@react-navigation/native';
 
-const mockCards = [
-    { id: '1', titulo: 'Cartão 1' },
-    { id: '2', titulo: 'Cartão 2' },
-    { id: '3', titulo: 'Cartão 3' },
-    { id: '4', titulo: 'Cartão 4' },
-];
+const CardCarousel = ({ cards, navigation }) => {
+    if (!cards || cards.length === 0) {
+        return null;
+    }
 
-const CardItem = ({ titulo, onPress }) => (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-        <View style={styles.cardTop}>
-            <Ionicons name="ellipsis-horizontal" size={18} color="#fff" />
-        </View>
-        <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>{titulo}</Text>
-        </View>
-    </TouchableOpacity>
-);
-
-export default function CardCarousel({ navigation }) {
     return (
-        <FlatList
-            data={mockCards}
+        <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-                <CardItem
-                    titulo={item.titulo}
-                    onPress={() => navigation.navigate("CardsScreen")}
-                />
-            )}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={{ paddingHorizontal: 16 }}
-        />
+            contentContainerStyle={localStyles.cardCarouselContainer}
+        >
+            {cards.map((card) => (
+                <TouchableOpacity
+                    key={card.id}
+                    style={localStyles.cardCarouselItem}
+                    onPress={() => navigation.navigate("CardsScreen", { deckId: card.deckId, deckName: card.deckName })}
+                >
+                    <View style={localStyles.cardCarouselTop}>
+                        <Ionicons name="ellipsis-horizontal" size={18} color="#fff" />
+                    </View>
+                    <View style={localStyles.cardCarouselContent}>
+                        <Text style={localStyles.cardCarouselText}>{card.title}</Text>
+                    </View>
+                </TouchableOpacity>
+            ))}
+        </ScrollView>
     );
-}
+};
 
-const styles = StyleSheet.create({
-    card: {
+export default CardCarousel;
+
+const localStyles = StyleSheet.create({
+    cardCarouselContainer: {
+        paddingVertical: 10,
+        paddingHorizontal: 0,
+    },
+    cardCarouselItem: {
         backgroundColor: '#fff',
         borderRadius: 12,
         width: 160,
-        height: 180,
-        marginRight: 12,
+        height: 150,
+        marginRight: 15,
         overflow: 'hidden',
+        elevation: 3,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 3,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
     },
-    cardTop: {
+    cardCarouselTop: {
         backgroundColor: colors.azulClaro,
-        height: 35,
+        height: 25,
         justifyContent: 'center',
         alignItems: 'flex-end',
-        paddingHorizontal: 10,
+        paddingRight: 8,
     },
-    cardContent: {
-        flex: 1,
+    cardCarouselContent: {
+        padding: 10,
+        height: 100,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 8,
     },
-    cardTitle: {
-        fontSize: 16,
-        fontWeight: '500',
-        color: '#000',
+    cardCarouselText: {
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 14,
+        textAlign: 'center',
+        color: colors.preto,
     },
 });

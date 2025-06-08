@@ -1,21 +1,19 @@
-import { StyleSheet } from "react-native";
-
-export const colors = {
-    azul: "#e4e4e4",
-    azulEscuro: "#234E78",
-    branco: "#fff",
-};
+import { StyleSheet, Dimensions } from "react-native";
+import { colors } from "./GlobalStyle";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.azul,
+        backgroundColor: colors.brancoBackground,
     },
     header: {
-        backgroundColor: colors.azulEscuro,
-        padding: 15,
-        alignItems: "center",
+        backgroundColor: colors.azul,
         paddingTop: 25,
+        paddingBottom: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        flexDirection: 'row',
     },
     logo: {
         width: 120,
@@ -23,37 +21,76 @@ export const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     scrollContent: {
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
     },
     sectionTitle: {
         fontSize: 20,
-        fontFamily: "Poppins_700Bold",
-        marginBottom: 10,
+        fontFamily: 'Poppins_700Bold',
+        color: colors.preto,
+        marginBottom: 15,
         marginTop: 20,
     },
-    card: {
-        width: 150,
-        height: 120,
-        backgroundColor: colors.branco,
-        borderRadius: 10,
-        marginRight: 10,
-        shadowColor: "#000",
+    cardCarouselContainer: {
+        paddingVertical: 10,
+    },
+    cardCarouselItem: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        width: Dimensions.get('window').width * 0.4,
+        marginRight: 15,
+        overflow: 'hidden',
+        elevation: 3,
+        shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 5,
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+    },
+    cardCarouselTop: {
+        backgroundColor: colors.azulClaro,
+        height: 25,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        paddingRight: 8,
+    },
+    cardCarouselContent: {
+        padding: 10,
+        height: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    cardCarouselText: {
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 14,
+        textAlign: 'center',
+        color: colors.preto,
     },
     folderButton: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: colors.azulEscuro,
-        padding: 15,
-        borderRadius: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: colors.azul,
+        padding: 16,
+        borderRadius: 14,
         marginBottom: 10,
+        elevation: 3,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
     },
     folderText: {
-        color: colors.branco,
-        fontFamily: "Poppins_500Medium",
+        color: 'white',
         fontSize: 16,
+        fontFamily: 'Poppins_700Bold',
     },
+    loadingIndicator: {
+        marginTop: 20,
+    },
+    noDataText: {
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 16,
+        color: colors.preto,
+        textAlign: 'center',
+        marginTop: 20,
+    }
 });

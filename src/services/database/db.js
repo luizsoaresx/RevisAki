@@ -3,10 +3,11 @@ import * as SQLite from 'expo-sqlite';
 let db;
 let isInitialized = false;
 
-export async function initDB(){
-  if (!isInitialized){
-    console.log('Iniciando o banco de dados');
+export async function initDB() {
+  if (!isInitialized) {
     db = await SQLite.openDatabaseAsync('revisaki.db');
+
+    await db.execAsync('PRAGMA foreign_keys = ON;');
 
     await db.execAsync(
       `CREATE TABLE IF NOT EXISTS users (
@@ -47,7 +48,7 @@ export async function initDB(){
 }
 
 export const getDb = () => {
-  if (!isInitialized){
+  if (!isInitialized) {
     throw new Error('Banco de dados não inicializado.')
   }
   return db;
