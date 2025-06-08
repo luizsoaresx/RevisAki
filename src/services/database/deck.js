@@ -2,12 +2,12 @@ import { getDb } from '../database/db';
 
 export const createDeck = async (name, userId) => {
     const db = getDb();
-    
+
     const result = await db.runAsync(
         'INSERT INTO decks (name, userId) VALUES (?, ?)',
         [name, userId]
     );
-    
+
     return result.lastInsertRowId;
 };
 
@@ -47,6 +47,23 @@ export const getDecById = async (id) => {
         'SELECT * FROM decks WHERE id = ?',
         [id]
     );
-    
+
     return deck;
+};
+
+export const countDecksByUserId = async (userId) => {
+    const db = getDb();
+
+    try {
+        const result = await db.getFirstAsync(
+            'SELECT COUNT(id) as count FROM decks WHERE userId = ?',
+            [userId]
+        );
+
+        return result ? result.count : 0;
+
+    } catch (error) {
+        console.error('Erro ao contar decks por usuário:', error);
+        throw error;
+    }
 };

@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
         height: 58
     },
 
-    passwordContainer:{
+    passwordContainer: {
         flexDirection: 'row',
         alignItems: 'center'
     },
@@ -95,5 +95,12 @@ export const styles = StyleSheet.create({
     registerLink: {
         paddingVertical: 20,
         color: colors.azulEscuro,
+    },
+
+    errorMessage: {
+        color: '#D40402',
+        fontSize: 14,
+        fontFamily: 'Poppins_500Medium',
+        textAlign: 'center',
     },
 });
