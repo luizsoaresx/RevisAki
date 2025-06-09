@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: colors.backgroundColor,
         paddingHorizontal: 32,
         paddingTop: 20,
     },
@@ -29,11 +28,13 @@ export const styles = StyleSheet.create({
         marginTop: -60,
     },
 
-    profileImage: {
-        width: 90,
-        height: 90,
+    iconWrapper: {
+        backgroundColor: '#fff',
         borderRadius: 50,
-        backgroundColor: '#6D9DC5'
+        width: 80,
+        height: 80,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     userInfo: {

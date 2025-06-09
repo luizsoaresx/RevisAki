@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from "../styles/UserProfileScreenStyle";
 import { useFonts } from "expo-font";
 import { Poppins_600SemiBold, Poppins_500Medium, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useFocusEffect } from '@react-navigation/native';
 import { getUserById } from '../services/database/user';
 import { countDecksByUserId } from '../services/database/deck';
@@ -29,7 +29,7 @@ export default function UserProfile({ navigation }) {
         setError('');
 
         try {
-    
+
             const storedUserId = await AsyncStorage.getItem('currentUserId');
             if (storedUserId) {
                 const userId = parseInt(storedUserId);
@@ -79,7 +79,7 @@ export default function UserProfile({ navigation }) {
                     text: "Sair",
                     onPress: async () => {
                         -
-                        await AsyncStorage.clear();
+                            await AsyncStorage.clear();
                         navigation.navigate('Welcome');
                     }
                 }
@@ -109,7 +109,7 @@ export default function UserProfile({ navigation }) {
     }
 
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <View style={styles.header}>
                 <Image
                     source={require('../assets/images/logo-revisaki.png')}
@@ -119,9 +119,12 @@ export default function UserProfile({ navigation }) {
             </View>
 
             <View style={styles.container}>
-                <View style={styles.profileImageContainer}>
-                    <View style={styles.profileImage} />
+                <View style={[styles.profileImageContainer]}>
+                    <View style={styles.iconWrapper}>
+                        <FontAwesome name="user-circle" size={80} color="#aaa" />
+                    </View>
                 </View>
+
 
                 <View style={styles.userInfo}>
                     <Text style={styles.title}>{user?.name || 'Nome do Usuário'}</Text>
@@ -135,12 +138,12 @@ export default function UserProfile({ navigation }) {
                     </View>
                     <View style={styles.statColumn}>
                         <Text style={styles.number}>{cardCount}</Text>
-                        <Text style={styles.label}>Cartões</Text>
+                        <Text style={styles.label}>Flashcards</Text>
                     </View>
                 </View>
 
                 <View>
-                    <Text style={[styles.title, {marginTop: 10}]}>Informações Adicionais</Text>
+                    <Text style={[styles.title, { marginTop: 10 }]}>Informações Adicionais</Text>
                 </View>
 
                 <View>

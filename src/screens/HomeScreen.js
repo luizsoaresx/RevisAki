@@ -95,17 +95,17 @@ export default function HomeScreen({ navigation }) {
             </View>
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
-                <Text style={styles.sectionTitle}>Cards Recentes</Text>
+                <Text style={styles.sectionTitle}>Flashcards Recentes</Text>
                 {loading ? (
                     <ActivityIndicator size="large" color={colors.azulEscuro} style={styles.loadingIndicator} />
                 ) : recentCards.length > 0 ? (
                     <CardCarousel cards={recentCards} navigation={navigation} />
                 ) : (
-                    <Text style={styles.noDataText}>Nenhum cartão recente.</Text>
+                    <Text style={styles.noDataText}>Nenhum flashcard recente.</Text>
                 )}
 
 
-                <Text style={styles.sectionTitle}>Pastas</Text>
+                <Text style={styles.sectionTitle}>Decks Recentes</Text>
                 {loading ? (
                     <ActivityIndicator size="large" color={colors.azulEscuro} style={styles.loadingIndicator} />
                 ) : recentDecks.length > 0 ? (
@@ -115,12 +115,12 @@ export default function HomeScreen({ navigation }) {
                             style={styles.folderButton}
                             onPress={() => navigation.navigate("CardsScreen", { deckId: deck.id, deckName: deck.name })}
                         >
-                            <MaterialIcons name="folder" size={24} color="white" style={{ marginRight: 10 }} />
+                            <MaterialIcons name="folder" size={32} color="white" style={{ marginRight: 10 }} />
                             <Text style={styles.folderText}>{deck.name}</Text>
                         </TouchableOpacity>
                     ))
                 ) : (
-                    <Text style={styles.noDataText}>Nenhuma pasta recente.</Text>
+                    <Text style={styles.noDataText}>Nenhum deck recente.</Text>
                 )}
 
             </ScrollView>
