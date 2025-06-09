@@ -8,8 +8,9 @@ RevisAki é um aplicativo mobile de flashcards desenvolvido para ajudar estudant
 * [Tecnologias Utilizadas](#tecnologias-utilizadas)
 * [Instalação](#instalação)
 * [Como Usar](#como-usar)
+* [Telas](#telas)
 * [Colaboradores](#colaboradores)
-* [Licença](#licença)
+
 
 ## Funcionalidades 
 
@@ -90,12 +91,34 @@ Depois de instalar e abrir o RevisAki, você estará pronto para começar a estu
 
   * Nas configurações, você pode mudar sua senha ou sair do aplicativo.
 
+## Telas
+<div align="center">
+   <img src="https://github.com/user-attachments/assets/042721c6-28d5-4c22-af3a-cfe1ce84ba10" alt="Welcome Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/ff750f15-07b3-4dfd-a7e3-1d01a62721e1" alt="Login Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/af9ce21d-4e55-4c87-84f4-ad94fc7435b1" alt="Register Screen" width="32%"/>
+</div>
+
+<div align="center">
+   <img src="https://github.com/user-attachments/assets/a5905139-98ab-4aba-9c72-8c819e368fea" alt="Home Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/cdf3c5cf-71bb-40a5-a902-788dc2b8be66" alt="Deck Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/68cc210e-3447-4731-a1a6-0df6e3602094" alt="Flashcard Screen" width="32%"/>
+</div>
+
+<div align="center">
+   <img src="https://github.com/user-attachments/assets/c64ae718-efd7-4bcc-8aa8-e634844901b7" alt="New Flashcard Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/82cfd9f4-f28e-4364-8aaf-a71c8e5623c5" alt="Revision Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/576b6baa-954e-4b35-8f8a-234d896c33e8" alt="Profile Screen" width="32%"/>
+
+
+
+
+
+   
+</div>
+
 ## Colaboradores
 * Bruna Bezerra
 * Dominique Morem
 * Laura Gomes
 * Lucas Daniel Bezerra
 * Luiz Lobato
-
-## Licença
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
