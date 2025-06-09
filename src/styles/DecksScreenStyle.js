@@ -62,10 +62,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalOverlay: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    position: 'absolute',
+    top: 32,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalBox: {
     width: '80%',
@@ -74,6 +78,7 @@ export const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     position: 'relative',
+    marginBottom: 32,
   },
   closeIcon: {
     position: 'absolute',
