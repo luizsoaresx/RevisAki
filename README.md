@@ -100,7 +100,7 @@ Depois de instalar e abrir o RevisAki, você estará pronto para começar a estu
 
 <div align="center">
    <img src="https://github.com/user-attachments/assets/a5905139-98ab-4aba-9c72-8c819e368fea" alt="Home Screen" width="32%"/>
-   <img src="https://github.com/user-attachments/assets/cdf3c5cf-71bb-40a5-a902-788dc2b8be66" alt="Deck Screen" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/6f76978c-636c-4eb1-8bac-61b1d3e39a81" alt="Deck Screen" width="32%"/>
    <img src="https://github.com/user-attachments/assets/68cc210e-3447-4731-a1a6-0df6e3602094" alt="Flashcard Screen" width="32%"/>
 </div>
 
@@ -108,12 +108,6 @@ Depois de instalar e abrir o RevisAki, você estará pronto para começar a estu
    <img src="https://github.com/user-attachments/assets/c64ae718-efd7-4bcc-8aa8-e634844901b7" alt="New Flashcard Screen" width="32%"/>
    <img src="https://github.com/user-attachments/assets/82cfd9f4-f28e-4364-8aaf-a71c8e5623c5" alt="Revision Screen" width="32%"/>
    <img src="https://github.com/user-attachments/assets/576b6baa-954e-4b35-8f8a-234d896c33e8" alt="Profile Screen" width="32%"/>
-
-
-
-
-
-   
 </div>
 
 ## Colaboradores
